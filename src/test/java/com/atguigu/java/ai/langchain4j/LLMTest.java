@@ -18,9 +18,28 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class LLMTest {
 
-    @Autowired
-    private OpenAiChatModel model;
 
+    /**
+     * 默认open ai 模型使用
+     */
+    @Autowired
+    private OpenAiChatModel openAiChatModel;
+
+    /**
+     * ollama 默认使用
+     */
+    @Autowired
+    private OllamaChatModel ollamaChatModel;
+
+    /**
+     * 通义千问大模型
+     */
+    @Autowired
+    private QwenChatModel qwenChatModel;
+
+    /**
+     * langchain4j 默认使用方式，以下都是默认配置
+     */
     @Test
     public void testGPTDemo() {
 
@@ -39,14 +58,27 @@ public class LLMTest {
     @Test
     public void testSpringboot() {
 
-        String answer = model.chat("你是谁？");
+        String answer = openAiChatModel.chat("你是谁？");
         System.out.println(answer);
 
 
     }
 
-    @Autowired
-    private OllamaChatModel ollamaChatModel;
+    /**
+     * deepseek 模型
+     */
+    @Test
+    public void testDeepseek() {
+
+        String answer = openAiChatModel.chat("你是谁？");
+        System.out.println(answer);
+
+
+    }
+
+    /**
+     * ollama 默认使用方式，以下都是默认配置
+     */
 
     @Test
     public void testOllama() {
@@ -58,11 +90,8 @@ public class LLMTest {
     }
 
     /**
-     * 通义千问大模型
+     * 百联大模型： 通义千问大模型
      */
-    @Autowired
-    private QwenChatModel qwenChatModel;
-
     @Test
     public void testDashboardQwen() {
 
@@ -72,20 +101,19 @@ public class LLMTest {
     }
 
     /**
-     * 万象大模型，画图
+     * 阿里云百联大模型：万象大模型 图片 ，目前只有文本与图片，语音与视频暂时没有
      */
     @Test
     public void testDashboardWanx() {
 
         WanxImageModel wanxImageModel = WanxImageModel.builder()
-                .apiKey("sk-83493f6b46b248c5a3a008dca639ac55")
+                .apiKey("sk-83493f6b46b248c5a3a008dca639ac25")
                 .modelName("wanx2.1-t2i-turbo")
                 .build();
         Response<Image> imageResponse = wanxImageModel.generate("画一张美女");
         Image content = imageResponse.content();
         System.out.println(content.url());
     }
-
 
 
 }

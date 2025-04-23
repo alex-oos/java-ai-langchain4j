@@ -1,0 +1,40 @@
+# #  spring boot 默认配置
+# server:
+#   port: 8082
+# spring:
+#   application:
+#     name: java-ai-langchain4j
+#
+# #  langchain4j 配置
+# langchain4j:
+#   #  阿里云百联模型
+#   community:
+#     dashscope:
+#       chat-model:
+#         api-key: sk-83493f6b46b248c5a3a008dca639ac25
+#         model-name: qwen-max
+#   # ollama 大模型
+#   ollama:
+#     chat-model:
+#       api-key: sk-83493f6b46b248c5a3a008dca639ac25
+#       base-url: http://localhost:11434
+#       log-requests: true
+#       log-responses: true
+#       model-name: llama2-13b-chat
+#   #  openai 模型，默认使用 langchain4j.dev/demo/openai/v1 ,适配市场上大部分模型
+#   open-ai:
+#     chat-model:
+#       api-key: '"demo"'
+#       base-url: http://langchain4j.dev/demo/openai/v1
+#       log-requests: true
+#       log-responses: true
+#       model-name: gpt-4o-mini
+#       # 百联模型中的deepseek
+#       # api-key: 'sk-83493f6b46b248c5a3a008dca639ac25'
+#       # base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+#       # log-requests: true
+#       # log-responses: true
+#       # model-name: deepseek-v3
+# logging:
+#   level:
+#     root: debug
