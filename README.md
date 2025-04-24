@@ -10,3 +10,9 @@ https://docs.langchain4j.dev/tutorials/spring-boot-integration
 - 阿里云盘：https://www.alipan.com/s/GkaGgP2UaSK（教程配套资料请从百度网盘下载）
 
 - 围观尚硅谷Java+AI大模型应用开发课程：http://www.atguigu.com/kecheng.shtml
+
+
+接口访问地址：
+http://localhost:8080/doc.html
+
+目前项目中没有做数据持久化操作，所以每次重启项目，数据都会丢失

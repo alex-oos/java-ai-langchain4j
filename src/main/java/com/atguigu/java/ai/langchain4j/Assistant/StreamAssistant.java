@@ -10,15 +10,13 @@ import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
 
 /**
  * @author Alex
- * @since 2025/4/23 11:18
+ * @since 2025/4/24 15:27
  * <p></p>
  */
 @AiService(wiringMode = EXPLICIT, chatModel = "qwenChatModel", chatMemoryProvider = "chatMemoryProviderXiaozhi")
-public interface XiaozhiAgent {
+public interface StreamAssistant {
 
     @SystemMessage(fromResource = "zhaozhi-prompt-template.txt")
-    String chat(@MemoryId Long memoryId, @UserMessage String userMessage);
-
-
+    Flux<String> chat(@MemoryId Long memoryId, @UserMessage String userMessage);
 
 }
